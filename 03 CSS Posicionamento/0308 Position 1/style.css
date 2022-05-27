@@ -1,0 +1,18 @@
+div{
+  border: 2px solid #ccc;
+  margin-top: 40px;
+  padding: 20px 20px 200px 20px;
+}
+
+span{
+  background-color: #e7e7e7;
+  border: 2px solid #ccc;
+  padding: 10px;
+}
+
+.fixo{
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+}
