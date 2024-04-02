@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slider</title>
+  <style>
+    .slider-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    
+    .slider {
+      display: flex;
+    }
+    
+    .slider img {
+      width: 100%;
+      height: auto;
+      object-fit: cover; /* Mantém a proporção da imagem e cobre todo o espaço disponível */
+    }
+    
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      z-index: 1;
+    }
+    
+    .prev {
+      left: 0;
+    }
+    
+    .next {
+      right: 0;
+    }
+    
+  </style>
+
+</head>
+
+<body>
+  <div class="slider-container">
+    <div class="slider">
+      <img src="img/dashboard-locveiculos-capa.png" alt="Image 3">
+      <img src="img/aba-locacao-veiculos.png" alt="Image 1">
+      <img src="img/dashboard-cliente.png" alt="Image 2">
+    </div>
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+  </div>
+  
+  <script>
+    let slideIndex = 0;
+    showSlide(slideIndex);
+
+    function nextSlide() {
+      showSlide(slideIndex += 1);
+    }
+
+    function prevSlide() {
+      showSlide(slideIndex -= 1);
+    }
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slider img');
+
+      if (n >= slides.length) {
+        slideIndex = 0;
+      }
+      if (n < 0) {
+        slideIndex = slides.length - 1;
+      }
+
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+
+      slides[slideIndex].style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>
